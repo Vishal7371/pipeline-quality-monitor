@@ -1,0 +1,28 @@
+settings:
+  database: pqm.db
+  alert_cooldown_minutes: 60
+  default_severity:
+    schema_drift: fail
+    null_rate: warn
+
+alerts:
+  slack:
+    webhook_env: PQM_SLACK_WEBHOOK
+
+feeds:
+  - name: sales_csv
+    type: csv
+    location: data/sales.csv
+    freshness_max_age_minutes: 90
+    checks:
+      schema_drift: true
+      null_rate:
+        columns:
+          customer_id: 0.0
+          email: 0.05
+      duplicates:
+        key: [order_id]
+      range:
+        amount: {min: 0, max: 100000}
+      row_count:
+        tolerance_pct: 40

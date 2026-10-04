@@ -1,0 +1,4 @@
+order_id,email,amount,created_at
+1,alice@example.com,250.00,2026-09-30 10:00:00
+2,bob@example.com,125.50,2026-09-30 11:00:00
+3,carol@example.com,899.99,2026-09-30 12:00:00

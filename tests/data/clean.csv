@@ -1,0 +1,6 @@
+order_id,customer_id,email,amount,created_at
+1,C001,alice@example.com,250.00,2026-09-30 10:00:00
+2,C002,bob@example.com,125.50,2026-09-30 11:00:00
+3,C003,carol@example.com,899.99,2026-09-30 12:00:00
+4,C004,dave@example.com,45.00,2026-09-30 13:00:00
+5,C005,eve@example.com,1200.00,2026-09-30 14:00:00

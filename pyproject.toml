@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pipeline-quality-monitor"
+version = "0.1.0"
+description = "Watch data feeds and detect schema drift and bad data before downstream consumers do."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+
+dependencies = [
+    "pandas>=2.1",
+    "pydantic>=2.4",
+    "sqlalchemy>=2.0",
+    "click>=8.1",
+    "requests>=2.31",
+    "croniter>=1.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.1",
+    "mypy>=1.6",
+    "pre-commit>=3.5",
+    "responses>=0.24",
+    "pandas-stubs>=2.1",
+]
+
+[project.scripts]
+pqm = "pqm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
